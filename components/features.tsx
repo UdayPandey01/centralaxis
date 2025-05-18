@@ -92,8 +92,8 @@ const Features = () => {
             videoRight: false,
           },
         ].map((feature, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={`
               bg-[#18181B] 
               mt-6 md:mt-8 lg:mt-[26px] 
@@ -112,17 +112,21 @@ const Features = () => {
             `}
           >
             {/* Video */}
-            <div className="w-full md:w-auto md:flex-shrink-0">
+            <div
+              className={`w-full md:w-auto md:flex-shrink-0 ${
+                feature.videoRight ? "md:mr-[20px]" : "md:ml-[20px]"
+              }`}
+            >
               <video
                 src={feature.videoSrc}
-                className="w-full h-auto md:w-[320px] lg:w-[544px] md:h-[240px] lg:h-[364px] object-cover"
+                className="w-full h-auto md:w-[320px] lg:w-[544px] md:h-[240px] lg:h-[364px] object-cover rounded-2xl "
                 autoPlay
                 muted
                 loop
                 playsInline
               ></video>
             </div>
-            
+
             {/* Content */}
             <div className="text-left flex-grow p-6 md:p-8 lg:p-10">
               <h2 className="text-white text-xl md:text-2xl lg:text-[32px] font-semibold mb-2 md:mb-4">
