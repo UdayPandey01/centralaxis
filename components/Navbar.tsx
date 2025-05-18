@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 type DropdownType =
   | "datacenter"
@@ -117,20 +118,9 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter("datacenter")}
             >
               Data Center Infrastructure Management
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
+            {/* Desktop dropdown that stays open until mouse leaves the dropdown area */}
             <div
               className={`absolute z-10 mt-2 w-64 bg-black/95 backdrop-blur-md text-white rounded shadow-lg border border-white/20 transition-all duration-200 ${
                 activeDropdown === "datacenter"
@@ -157,19 +147,7 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter("intelligence")}
             >
               Intelligence
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
             <div
               className={`absolute z-10 mt-2 w-64 bg-black/95 backdrop-blur-md text-white rounded shadow-lg border border-white/20 transition-all duration-200 ${
@@ -197,19 +175,7 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter("compliance")}
             >
               Compliance
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
             <div
               className={`absolute z-10 mt-2 w-64 bg-black/95 backdrop-blur-md text-white rounded shadow-lg border border-white/20 transition-all duration-200 ${
@@ -237,19 +203,7 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter("sustainability")}
             >
               Sustainability
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
             <div
               className={`absolute z-10 mt-2 w-64 bg-black/95 backdrop-blur-md text-white rounded shadow-lg border border-white/20 transition-all duration-200 ${
@@ -272,10 +226,11 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile menu that slides from top to bottom */}
         <div
-          className={`lg:hidden fixed inset-0 bg-black/95 z-50 transform transition-transform duration-300 ease-in-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          } overflow-y-auto`}
+          className={`lg:hidden fixed top-0 left-0 right-0 z-50 bg-black/95 h-screen overflow-y-auto transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
         >
           <div className="flex justify-between items-center p-4 border-b border-white/10">
             <div className="flex items-center">
@@ -308,29 +263,19 @@ const Navbar = () => {
                 onClick={() => toggleMobileSection("datacenter")}
               >
                 <div className="font-semibold">Data Center Infrastructure Management</div>
-                <svg
-                  className={`w-5 h-5 transition-transform ${
+                <TiArrowSortedDown 
+                  className={`text-xl transition-transform ${
                     expandedMobileSection === "datacenter" ? "rotate-180" : ""
                   }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                />
               </div>
               <div 
-                className={`transition-all duration-300 overflow-hidden ${
-                  expandedMobileSection === "datacenter" ? "max-h-96" : "max-h-0"
+                className={`transition-all duration-300 ${
+                  expandedMobileSection === "datacenter" ? "max-h-screen py-2" : "max-h-0 overflow-hidden"
                 }`}
               >
                 {dropdownMenus.datacenter.map((item, index) => (
-                  <Link href={item.route} key={index}>
+                  <Link href={item.route} key={index} onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="px-6 py-2 text-gray-300 cursor-pointer hover:text-white">
                       {item.name}
                     </div>
@@ -345,29 +290,19 @@ const Navbar = () => {
                 onClick={() => toggleMobileSection("intelligence")}
               >
                 <div className="font-semibold">Intelligence Solutions</div>
-                <svg
-                  className={`w-5 h-5 transition-transform ${
+                <TiArrowSortedDown 
+                  className={`text-xl transition-transform ${
                     expandedMobileSection === "intelligence" ? "rotate-180" : ""
                   }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                />
               </div>
               <div 
-                className={`transition-all duration-300 overflow-hidden ${
-                  expandedMobileSection === "intelligence" ? "max-h-96" : "max-h-0"
+                className={`transition-all duration-300 ${
+                  expandedMobileSection === "intelligence" ? "max-h-screen py-2" : "max-h-0 overflow-hidden"
                 }`}
               >
                 {dropdownMenus.intelligence.map((item, index) => (
-                  <Link href={item.route} key={index}>
+                  <Link href={item.route} key={index} onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="px-6 py-2 text-gray-300 cursor-pointer hover:text-white">
                       {item.name}
                     </div>
@@ -382,29 +317,19 @@ const Navbar = () => {
                 onClick={() => toggleMobileSection("compliance")}
               >
                 <div className="font-semibold">Data Center Compliance</div>
-                <svg
-                  className={`w-5 h-5 transition-transform ${
+                <TiArrowSortedDown 
+                  className={`text-xl transition-transform ${
                     expandedMobileSection === "compliance" ? "rotate-180" : ""
                   }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                />
               </div>
               <div 
-                className={`transition-all duration-300 overflow-hidden ${
-                  expandedMobileSection === "compliance" ? "max-h-96" : "max-h-0"
+                className={`transition-all duration-300 ${
+                  expandedMobileSection === "compliance" ? "max-h-screen py-2" : "max-h-0 overflow-hidden"
                 }`}
               >
                 {dropdownMenus.compliance.map((item, index) => (
-                  <Link href={item.route} key={index}>
+                  <Link href={item.route} key={index} onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="px-6 py-2 text-gray-300 cursor-pointer hover:text-white">
                       {item.name}
                     </div>
@@ -419,29 +344,19 @@ const Navbar = () => {
                 onClick={() => toggleMobileSection("sustainability")}
               >
                 <div className="font-semibold">Sustainability Blog</div>
-                <svg
-                  className={`w-5 h-5 transition-transform ${
+                <TiArrowSortedDown 
+                  className={`text-xl transition-transform ${
                     expandedMobileSection === "sustainability" ? "rotate-180" : ""
                   }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                />
               </div>
               <div 
-                className={`transition-all duration-300 overflow-hidden ${
-                  expandedMobileSection === "sustainability" ? "max-h-96" : "max-h-0"
+                className={`transition-all duration-300 ${
+                  expandedMobileSection === "sustainability" ? "max-h-screen py-2" : "max-h-0 overflow-hidden"
                 }`}
               >
                 {dropdownMenus.sustainability.map((item, index) => (
-                  <Link href={item.route} key={index}>
+                  <Link href={item.route} key={index} onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="px-6 py-2 text-gray-300 cursor-pointer hover:text-white">
                       {item.name}
                     </div>
