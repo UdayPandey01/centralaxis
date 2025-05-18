@@ -42,7 +42,7 @@ const Navbar = () => {
       { name: "Monitoring Devices", route: "/datacenter/monitoring" },
       { name: "Asset Tracking", route: "/datacenter/assets" },
       { name: "Network Management", route: "/datacenter/network" },
-      { name: "Change Management", route: "/datacenter/changes" },
+      { name: "Change Management", route: "/datacenter/change" },
       { name: "Colocation Management", route: "/datacenter/colocation" },
       { name: "Data Center Planner", route: "/datacenter/planner" },
       { name: "Firmware Management", route: "/datacenter/firmware" },
@@ -74,14 +74,14 @@ const Navbar = () => {
       },
     ],
     sustainability: [
-      { name: "Energy Efficiency", route: "/sustainability/energy" },
-      { name: "Stranded Energy Map", route: "/sustainability/stranded-energy" },
+      { name: "Energy Efficiency", route: "/energy-solutions/energy" },
+      { name: "Stranded Energy Map", route: "/energy-solutions/stranded-energy" },
       {
         name: "Environmental Product Declaration",
-        route: "/sustainability/epd",
+        route: "/energy-solutions/epd",
       },
-      { name: "Renewables Integration", route: "/sustainability/renewables" },
-      { name: "Power Resource Management", route: "/sustainability/power" },
+      { name: "Renewables Integration", route: "/energy-solutions/renewables" },
+      { name: "Power Resource Management", route: "/energy-solutions/power" },
     ],
   };
 
@@ -114,7 +114,7 @@ const Navbar = () => {
         <div className="hidden lg:flex space-x-8">
           <div className="relative group">
             <div
-              className="cursor-pointer flex items-center text-sm font-semibold"
+              className="cursor-pointer flex items-center text-sm font-medium"
               onMouseEnter={() => handleMouseEnter("datacenter")}
             >
               Data Center Infrastructure Management
@@ -143,10 +143,10 @@ const Navbar = () => {
 
           <div className="relative group">
             <div
-              className="cursor-pointer flex items-center text-sm font-semibold"
+              className="cursor-pointer flex items-center text-sm font-medium"
               onMouseEnter={() => handleMouseEnter("intelligence")}
             >
-              Intelligence
+              Intelligence Solutions
               <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
             <div
@@ -171,10 +171,10 @@ const Navbar = () => {
 
           <div className="relative group">
             <div
-              className="cursor-pointer flex items-center text-sm font-semibold"
+              className="cursor-pointer flex items-center text-sm font-medium"
               onMouseEnter={() => handleMouseEnter("compliance")}
             >
-              Compliance
+              Data Center Compliance
               <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
             <div
@@ -199,10 +199,10 @@ const Navbar = () => {
 
           <div className="relative group">
             <div
-              className="cursor-pointer flex items-center text-sm font-semibold"
+              className="cursor-pointer flex items-center text-sm font-medium"
               onMouseEnter={() => handleMouseEnter("sustainability")}
             >
-              Sustainability
+              Sustainability Blog
               <TiArrowSortedDown className="ml-1 text-lg" />
             </div>
             <div
