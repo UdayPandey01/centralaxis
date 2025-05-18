@@ -31,27 +31,27 @@ const faqs = [
 
 const FAQs = () => {
   return (
-    <div className="w-[1400px] mx-auto mt-[72px] mb-[72px]">
+    <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 my-12 sm:my-16 lg:my-[72px]">
       <div className="flex flex-col justify-center items-center">
-        <p className="text-[#71717A] bg-[#18181B] font-medium rounded-4xl px-2 py-0.5 inline-block text-[16px]">
+        <p className="text-[#71717A] bg-[#18181B] font-medium rounded-full px-2 py-0.5 inline-block text-sm sm:text-base">
           FAQs
         </p>
-        <h2 className="text-white text-[36px] font-semibold mt-[12px]">
+        <h2 className="text-white text-2xl sm:text-3xl lg:text-[36px] font-semibold mt-2 sm:mt-3">
           Frequently asked questions
         </h2>
-        <p className="text-[#71717A] text-[20px] max-w-[900px] mt-[12px]">
+        <p className="text-[#71717A] text-base sm:text-lg lg:text-[20px] max-w-[900px] mt-2 sm:mt-3 text-center px-4">
           Find answers to common questions about our solutions.
         </p>
       </div>
 
-      <div className="flex flex-wrap ml-[26px] gap-[40px] mt-[40px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-10 lg:mt-[40px]">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className=" text-white rounded-2xl p-6 w-[424px] h-auto"
+            className="text-white rounded-2xl p-4 sm:p-6 w-full"
           >
-            <h3 className="text-[18px] font-semibold mb-4">{faq.question}</h3>
-            <p className="text-[16px] text-[#71717A]">{faq.answer}</p>
+            <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4">{faq.question}</h3>
+            <p className="text-sm sm:text-base text-[#71717A]">{faq.answer}</p>
           </div>
         ))}
       </div>
